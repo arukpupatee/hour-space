@@ -29,79 +29,87 @@
                 <div class="header-content">
                     <div class="header-content-text">
                         <h1>Find a space for Power nap</h1>
-                        <h5>Rent a space on hourly basis.</h5>
+                        <h5>Hourly rental made easy and simple.</h5>
                     </div>
                     <div class="header-search col-lg-8">
                         <div class="input-group">
                             <div class="header-select form-control rounded-form-control">
                                 <div class="header-search-label small">Where</div>
                                 <select name="location">
-                                    <option value="bangkok">bangkok</option>
-                                    <option value="bangkok">bangkok</option>
-                                    <option value="bangkok">bangkok</option>
-                                    <option value="bangkok">bangkok</option>
-                                    <option value="bangkok">bangkok</option>
+                                  <% for (var i = 0; i < locations.length; i++) {%>
+                                    <option value="<%= locations[i].location_name %>"><%= locations[i].location_name %></option>
+                                  <% } %>
                                 </select>
                             </div>
                             <div class="header-select form-control rounded-form-control">
                                 <div class="header-search-label small">When</div>
-                                <input  type='text' class="form-control" name="date" id="dpd1">
+                                <input  type='text' class="form-control" name="date" id="dpd1" placeholder="Date">
                             </div>
                             <div class="header-select form-control rounded-form-control">
                                 <div class="header-search-label small">For What</div>
                                 <select name="purpose">
-                                    <option value="powernap">powernap</option>
+                                  <% for (var i = 0; i < categories.length; i++) {%>
+                                    <option value="<%= categories[i].name %>"><%= categories[i].name %></option>
+                                  <% } %>
                                 </select>
                             </div>
                             <div class="header-select header-people form-control rounded-form-control">
                                 <div class="header-search-label small">People</div>
-                                <select name="purpose">
-                                    <option value=1>1</option>
-                                    <option value=1>2</option>
-                                    <option value=1>3</option>
-                                    <option value=1>4</option>
+                                <select name="people">
+                                  <% for (var i = 1; i <= 10; i++) {%>
+                                    <option value=<%= i %>><%= i %></option>
+                                  <% } %>
                                 </select>
                             </div>
                             <span class="input-group-btn">
-                                <button class="btn btn-primary" type="button" id="searchbtn">Search</button>
+                                <button class="btn btn-primary" type="button" id="searchbtn" onclick="search_space()">Search</button>
                             </span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="container-fluid customer-table">
+            <div class="container">
+                <h3 class="color-black">Why HourSpace?</h3>
+                <div class="customer-benefit row">
+                    <div class="col-md-4 col-sm-4 col-xxs-12 location-col">
+                        <img src="cus-icon1.png" width=150 height=150>
+                        <h5 class="location-block-text color-black">
+                            Cost-Saving
+                        </h5>
+                            Save up to 90% with demand-based pricing. No commitment and no hidden fees.                    
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xxs-12 location-col">
+                        <img src="cus-icon2.png" width=150 height=150>
+                        <h5 class="location-block-text color-black">
+                            Instant Booking
+                        </h5>
+                            Book and go. Two simple steps without calls or emails.
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xxs-12 location-col">
+                        <img src="cus-icon3.png" width=150 height=150>
+                        <h5 class="location-block-text color-black">
+                            Tailored to you
+                        </h5>
+                            Enjoy add-on service tailored to your needs that you won't get anywhere else.
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container-fluid">
             <div class="container-fluid landing-location">
-                <h3 class="color-black">What's your purpose?</h3>
+                <h3 class="color-black">Need private time?</h3>
                 <div class="landing-location-row">
-                    <a class="foot-loc col-md-3 col-sm-6 col-xs-6 col-xxs-12 location-col" href="/result">
-                        <div class="location-block" style="background-color:grey;">
-                            <h5 class="location-block-text">
-                                Power Nap
-                            </h5>
-                        </div>
-                    </a>
-                    <a class="foot-loc col-md-3 col-sm-6 col-xs-6 col-xxs-12 location-col" href="/result">
-                        <div class="location-block" style="background-color:grey;">
-                            <h5 class="location-block-text">
-                                Power Nap
-                            </h5>
-                        </div>
-                    </a>
-                    <a class="foot-loc col-md-3 col-sm-6 col-xs-6 col-xxs-12 location-col" href="/result">
-                        <div class="location-block" style="background-color:grey;">
-                            <h5 class="location-block-text">
-                                Power Nap
-                            </h5>
-                        </div>
-                    </a>
-                    <a class="foot-loc col-md-3 col-sm-6 col-xs-6 col-xxs-12 location-col" href="/result">
-                        <div class="location-block" style="background-color:grey;">
-                            <h5 class="location-block-text">
-                                Power Nap
-                            </h5>
-                        </div>
-                    </a>
+                  <% for (var i = 0; i < categories.length; i++) {%>
+                  <a class="foot-loc col-md-3 col-sm-6 col-xs-6 col-xxs-12 location-col" href="/result/<%= categories[i].name %>" data-loc=1>
+                      <div class="location-block" style="background-image:url(/);">
+                          <h5 class="location-block-text">
+                              <%= categories[i].name %>
+                          </h5>
+                      </div>
+                  </a>
+                  <% } %>
                 </div>   
             </div>
         </div>
