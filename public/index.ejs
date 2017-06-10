@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+    <head>
+        <title>HourSpace</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href = "bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href = "bootstrap/css/bootstrap-xxs.css">
+        <link rel="stylesheet" href = "css/reboot.css">
+        <link rel="stylesheet" href = "css/global.css">
+        <link rel="stylesheet" href = "css/landing.css">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Prompt:100,200,300,400,500,600,700,800,900&amp;subset=thai" rel="stylesheet">
+        <link href="https://file.myfontastic.com/G8KRYFNq9QatpXE9t32usG/icons.css" rel="stylesheet">
+    </head>
+    <body class="langing-page">
+        <div class="landing-header-wrapper">
+            <div class="container-fluid landing-header">
+                <div class="header-logo">
+                    <a href="#" class="header-logo-block no-decor">
+                    </a>
+                </div>
+                <div class="register-btn">
+                    Register
+                </div>
+                <div class="login-btn">
+                    Login
+                </div>
+                <div class="header-content">
+                    <div class="header-content-text">
+                        <h1>Find a space for Power nap</h1>
+                        <h5>Rent a space on hourly basis.</h5>
+                    </div>
+                    <div class="header-search col-lg-8">
+                        <div class="input-group">
+                          <form id="search_space_form" action="/result" method="POST">
+                            <div class="header-select form-control rounded-form-control">
+                                <div class="header-search-label small">Where</div>
+                                <select name="location">
+                                  <% for (var i = 0; i < locations.length; i++) {%>
+                                    <option value="<%= locations[i].location_name %>"><%= locations[i].location_name %></option>
+                                  <% } %>
+                                </select>
+                            </div>
+                            <div class="header-select form-control rounded-form-control">
+                                <div class="header-search-label small">When</div>
+                                <input type="date" name="date">
+                            </div>
+                            <div class="header-select form-control rounded-form-control">
+                                <div class="header-search-label small">For What</div>
+                                <select name="purpose">
+                                  <% for (var i = 0; i < categories.length; i++) {%>
+                                    <option value="<%= categories[i].name %>"><%= categories[i].name %></option>
+                                  <% } %>
+                                </select>
+                            </div>
+                            <div class="header-select header-people form-control rounded-form-control">
+                                <div class="header-search-label small">People</div>
+                                <select name="people">
+                                  <% for (var i = 1; i <= 10; i++) {%>
+                                    <option value=<%= i %>><%= i %></option>
+                                  <% } %>
+                                </select>
+                            </div>
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="button" id="searchbtn"  data-toggle="modal" data-target="#locmodal" onclick="search_space()">Search</button>
+                            </span>
+                          </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="container-fluid landing-location">
+                <h3>What's your purpose?</h3>
+                <div class="landing-location-row">
+                  <% for (var i = 0; i < categories.length; i++) {%>
+                  <a class="foot-loc col-md-3 col-sm-6 col-xs-6 col-xxs-12 location-col" href="/result/<%= categories[i].name %>" data-loc=1>
+                      <div class="location-block" style="background-image:url(/);">
+                          <h5 class="location-block-text">
+                              <%= categories[i].name %>
+                          </h5>
+                      </div>
+                  </a>
+                  <% } %>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="curloc" value=0>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="js/landing.js"></script>
+    </body>
+<script>
+function search_space(){
+  var frm = document.getElementById("search_space_form");
+  frm.submit();
+}
+</script>
+
+</html>

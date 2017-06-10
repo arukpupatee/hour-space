@@ -1,0 +1,68 @@
+.header-logo-block{
+    background-image: url("../logo.png");
+}
+
+.register-btn{
+    color: black;
+}
+.login-btn{
+    color: black
+}
+.landing-header{
+    color:#777777;
+    background: none;
+    background-image:url("../bus-bg.jpg");
+    background-size: cover;
+}
+
+.landing-header h1, .landing-header h5{
+    color: #0064BC;
+}
+
+.header-email{
+    float: none;
+    margin: auto;
+}
+
+.bussiness-table{
+    margin-top:40px;
+    text-align: center;
+    margin-bottom:40px;
+}
+
+.bussiness-benefit{
+    margin-top:40px;
+}
+
+.bussiness-testimonial{
+    padding-top:80px;
+    padding-bottom:80px;
+    background-color: #F2F5FF;
+}
+.bussiness-testimonial.white-bg{
+    background-color: white;
+}
+
+.testimonial-name{
+    color: black;
+    margin-bottom:0;
+}
+
+.testimonial-profile{
+    width:100px;
+    height:100px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50px;
+}
+
+.bussiness-action{
+    padding-top:40px;
+    padding-bottom: 40px;
+    background-color: black;
+    color:white;
+    text-align: center;
+}
+.bussiness-action-heading{
+    margin-bottom:40px;
+}
