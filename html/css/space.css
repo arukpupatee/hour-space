@@ -1,0 +1,192 @@
+.space-body{
+    background-color: #F2F5FF;
+}
+.header-bar{
+    position: absolute;
+    width:100%;
+    padding-bottom: 20px;
+    background: -moz-linear-gradient(top, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#66000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+}
+.header-logo{
+    position: relative;
+    color:white;
+}
+.space-image{
+    overflow: hidden;
+    background-size:cover;
+    background-position: center;
+    padding-top:40%;
+    min-height: 300px;
+}
+.space-price-tag{
+    background-color: black;
+    border-radius: 4px 4px 0 0;
+    color:white;
+    padding:5px 5px 5px 20px;
+    height:46px;
+}
+.space-top{
+    position:relative;
+    margin-top: -46px;
+}
+.space-top h3{
+    margin: 0;
+}
+.space-title{
+    position: relative;
+}
+.space-location{
+    margin-bottom: 10px;
+}
+.space-title-left{
+    background-color: white;
+    color:black;
+    padding: 20px;
+    border-radius: 4px;
+}
+.space-price{
+    float:left;
+    margin-right: 10px;
+    line-height: 36px;
+    height: 36px;
+}
+.space-price-text{
+    font-size: 1.25em;
+}
+.space-price-amount{
+    font-size: 1.25em;
+}
+.space-btn{
+    float:right;
+}
+.space-title-right{
+    position: absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    padding-right: 0;
+}
+.space-right-box{
+    background-color: white;
+    padding: 20px;
+    border-bottom: 1px solid #D9E2FF;
+}
+.space-hour-input{
+    width:100%;
+    margin-top: 5px;
+}
+.space-food{
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border: none;
+}
+.food-image{
+    position: relative;
+    margin:auto;
+    margin-top:10px;
+    width:100px;
+    height:100px;
+    border-radius: 50px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+.space-middle{
+    margin-bottom:15px;
+    margin-top: 15px;
+}
+.space-detail{
+    background-color: white;
+    border-radius: 4px;
+    padding: 20px;
+}
+.detail-sec{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.detail-sec li{
+    margin-bottom: 10px;
+}
+.detail-sec ul{
+    margin-bottom: -10px;
+}
+.detail-heading{
+    color:black;
+    margin-bottom: 10px;
+}
+.detail-line:after{
+    content:'';
+    display:block;
+    position: absolute;
+    height:0;
+    bottom:-20px;
+    left:15px;
+    right:15px;
+    border-top: 1px solid #D9E2FF;
+}
+.detail-fullline:after{
+    content:'';
+    display:block;
+    position: absolute;
+    height:0;
+    bottom:-20px;
+    left:-5px;
+    right:-5px;
+    border-top: 1px solid #D9E2FF;
+}
+.space-desc{
+    padding-bottom:20px;
+    margin-bottom: 20px
+}
+
+.space-modal-form{
+    margin-bottom: 20px;
+}
+.hour-picker{
+    border: 1px solid #D9E2FF;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.hour-picker .btn{
+    float: left;
+    margin:0;
+    padding-left: 0;
+    padding-right: 0;
+    border-radius: 0;
+    margin: -1px;
+    border: 1px solid #D9E2FF;
+    box-sizing: content-box;
+}
+.modal-booking{
+    background-color: #F2F5FF;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+.modal-booking-close{
+    float: right;
+}
+
+.hour-picker .btn-default:active, .hour-picker .btn-default.active, 
+.hour-picker .btn-default:active:hover, .hour-picker .btn-default.active:hover, 
+.hour-picker .btn-default:active:focus, .hour-picker .btn-default.active.focus,
+.hour-picker .btn-default:focus, .hour-picker .btn-default.focus{
+    background-color: #638aff;
+    border-color: #638aff;
+    color:white;
+}
+
+@media (max-width: 767px){
+.space-title-right{
+    position: relative;
+    padding: 0;
+    margin-top:20px;
+}
+}
+
+
+.soonmodal-input{
+    margin: 20px 0;
+}

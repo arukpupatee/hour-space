@@ -1,0 +1,114 @@
+html,body{
+    font-family:  'Poppins', 'Prompt', sans-serif;
+}
+ol, ul {
+	list-style: none;
+    padding: 0;
+    margin: 0;
+}
+a{
+    cursor: pointer;
+}
+h1,h2,h3,h4,h5{
+    color:black;
+}
+.modal-header, .modal-footer{
+    border: none;
+}
+.modal-header{
+    padding-bottom: 0;
+}
+.modal-content .close{
+    margin-right:-5px;
+    margin-top:-5px; 
+    opacity: 1;
+}
+.modal-content{
+    box-shadow: none;
+}
+.modal-dialog{
+    transform: none!important;
+    transition: none!important;
+}
+.close{
+    color:black;
+}
+.form-control{
+    box-shadow:none;
+}
+.rounded-form-control{
+    border-radius: 4px;
+}
+label{
+    color:black;
+    font-weight: normal;
+}
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+.gutter-15{
+    margin-right:-7.5px;
+    margin-left:-7.5px;
+}
+.gutter-15 > [class*='col-'] {
+    padding-right:7.5px;
+    padding-left:7.5px;
+}
+
+.btn:hover, .btn:active, .btn.active, .btn:active:focus{
+    box-shadow: none!important;
+}
+.btn-default:hover{
+    background-color: #F2F5FF;
+    border-color: #D9E2FF;
+}
+.btn-default:active, .btn-default.active, 
+.btn-default:active:hover, .btn-default.active:hover, 
+.btn-default:active:focus, .btn-default.active.focus,
+.btn-default:focus, .btn-default.focus{
+    background-color: #F2F5FF;
+    border-color: #D9E2FF;
+}
+.btn-default.disabled{
+    background-color: #D9E2FF!important;
+    pointer-events: none;
+}
+
+/*-------------5th column------------------*/
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col-xs-5ths {
+    width: 20%;
+    float: left;
+}
+
+@media (min-width: 768px) {
+    .col-sm-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-lg-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+/*-------------/5th column------------------*/

@@ -1,0 +1,102 @@
+.landing-header{
+    background:black;
+}
+.header-content{
+    padding-top:30px;
+    padding-bottom: 30px;
+}
+
+.landing-space{
+    padding-top:30px;
+    padding-bottom:30px;
+    background-color: #F2F5FF;
+}
+.space-sec{
+    margin-top:40px;
+}
+.space-block{
+    position: relative;
+    border-radius: 4px;
+    margin-bottom:15px;
+    overflow: hidden;
+    background-color: white;
+}
+.block-img{
+    padding:0;
+}
+.block-img-inner{
+    width:100%;
+    padding-top:62%;
+    min-height: 240px;
+    background-size:cover;
+    background-position: center;
+}
+.block-food{
+    position: absolute;
+    right:10px;
+    bottom: 10px;
+    width:80px;
+    height:80px;
+    border-radius: 40px;
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid white;
+}
+.block-text{
+    padding: 20px;
+}
+.block-desc{
+    height:44px;
+    margin-bottom: 22px;
+    overflow: hidden;
+}
+.space-block h4{
+    margin: 0;
+}
+.block-location{
+    margin-bottom: 10px;
+    color:black;
+}
+.block-middle{
+    margin-top:10px;
+}
+.block-butt-left{
+    float:left;
+    margin-right:20px;
+    color:black;
+}
+.block-butt-left-top{
+    margin-top:10px;
+}
+.block-butt-right{
+    float:right;
+}
+@media (max-width: 575px){
+.block-butt-right{
+    width:100%;
+}
+}
+.block-price{
+    float:left;
+    margin-right: 10px;
+    line-height: 36px;
+    height: 36px;
+}
+.block-price span{
+    font-size: 1.25em;
+    color:black;
+}
+.block-btn{
+    float:right;
+}
+
+.block-tag{
+    float: left;
+    margin-right: 5px;
+    padding:4px 10px;
+    font-size: 12px;
+    background-color: #B5C6FF;
+    border-radius:20px;
+    color:white;
+}
