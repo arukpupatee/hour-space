@@ -26,6 +26,12 @@
 .color-red{
     color: #FF8FFF;
 }
+.color-yellow{
+    color:#FFBB00;
+}
+.color-blue{
+    color:#638AFF;
+}
 .middle-container{
     position: relative;
     white-space:nowrap;
@@ -122,4 +128,16 @@
     color: white;
     position: absolute;
     top:-25px;
+}
+
+
+.block-tag{
+    float: left;
+    margin-right: 5px;
+    padding:3px 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    background-color: #B5C6FF;
+    border-radius:20px;
+    color:white;
 }
