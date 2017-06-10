@@ -8,11 +8,29 @@ app.set('view engine', 'ejs'); // set the view engine to ejs
 
 // page render
 app.get('/', function(req, res) {
-  res.render('pages/index');
+  var res_obj = {};
+  get_categories(function(categories){
+    res_obj.categories = categories;
+    res.render('pages/index');
+  });
 });
 
-// API
-
+// function
+function get_categories(callback){
+  db.all("SELECT * FROM space_categories", function(err, rows) {
+    callback(rows);
+  });
+}
+function get_all_spaces(callback){
+  db.all("SELECT * FROM spaces", function(err, rows) {
+    callback(rows);
+  });
+}
+function get_space(id,callback){
+  db.all("SELECT * FROM spaces WHERE id="+id, function(err, rows) {
+    callback(rows);
+  });
+}
 
 app.listen(8080);
 console.log("Server listening at Port 8080");
