@@ -80,6 +80,12 @@
     background-image: url("../logo-white.png");
 }
 
+.register-btn,.login-btn{
+    padding:20px;
+    float:right;  
+    color:white;
+}
+
 .header-search{
     float: none;
     margin:auto;

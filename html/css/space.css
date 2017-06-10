@@ -10,10 +10,6 @@
     background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#66000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
 }
-.header-logo{
-    position: relative;
-    color:white;
-}
 .space-image{
     overflow: hidden;
     background-size:cover;
