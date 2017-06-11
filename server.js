@@ -35,11 +35,9 @@ app.post('/result', function(req, res) {
       condition.location= req.body.location;
       var temp_date = req.body.date;
       temp_date = temp_date.split("/");
-      console.log(temp_date);
       condition.date= temp_date[2]+"-"+temp_date[0]+"-"+temp_date[1];
       condition.purpose= req.body.purpose;
       condition.people= req.body.people;
-      console.log(condition);
       get_space_by_condition(condition,function(spaces){
         res_obj.spaces = spaces;
         res.render('pages/result',res_obj);
@@ -47,8 +45,10 @@ app.post('/result', function(req, res) {
     });
   });
 });
+/*
 app.get('/result/:purpose',function(req, res) {
   var res_obj = {};
+  console.log(req.params.purpose);
   get_all_categories(function(categories){
     res_obj.categories = categories;
     get_all_locations(function(locations){
@@ -58,6 +58,23 @@ app.get('/result/:purpose',function(req, res) {
       get_space_by_condition(condition,function(spaces){
         res_obj.spaces = spaces;
         res.render('pages/result',res_obj);
+      });
+    });
+  });
+});
+*/
+app.get('/result',function(req, res) {
+  var res_obj = {};
+  get_all_categories(function(categories){
+    res_obj.categories = categories;
+    get_all_locations(function(locations){
+      res_obj.locations = locations;
+      var condition = {};
+      condition.purpose= req.query.p;
+      get_space_by_condition(condition,function(spaces){
+        res_obj.spaces = spaces;
+        res.render('pages/result',res_obj);
+        console.log(res_obj);
       });
     });
   });
@@ -84,17 +101,9 @@ function get_all_locations(callback){
     callback(rows);
   });
 }
-function get_all_spaces(callback){
-  db.all("SELECT * FROM spaces", function(err, rows) {
-    if (err) throw err;
-    callback(rows);
-  });
-}
 function get_space_by_id(id,callback){
   var query_text = "SELECT * FROM spaces ";
   query_text += "INNER JOIN owners ON spaces.owner_id = owners.id ";
-  query_text += "INNER JOIN space_has_categories ON spaces.id = space_has_categories.space_id ";
-  query_text += "INNER JOIN space_categories ON space_has_categories.category_id = space_categories.id ";
   query_text += "WHERE spaces.id="+id;
   db.all(query_text, function(err, rows) {
     if (err) throw err;
@@ -105,8 +114,7 @@ function get_space_by_condition(condition,callback){
   var query_text = "";
   if(typeof condition.location == "undefined"){
     var purpose = condition.purpose;
-    query_text += "SELECT * FROM spaces ";
-    query_text += "INNER JOIN space_has_categories ON spaces.id = space_has_categories.space_id ";
+    query_text += "SELECT spaces.id,spaces.name,spaces.price,spaces.location_name,spaces.people,spaces.rating, space_categories.name as category FROM spaces ";
     query_text += "INNER JOIN space_categories ON spaces.category_id = space_categories.id ";
     query_text += "WHERE space_categories.name='"+purpose+"'";
   }

@@ -104,7 +104,7 @@
                 <h3 class="color-black">Need private time?</h3>
                 <div class="landing-location-row">
                   <% for (var i = 0; i < categories.length; i++) {%>
-                  <a class="foot-loc col-md-3 col-sm-6 col-xs-6 col-xxs-12 location-col" href="/result/<%= categories[i].name %>" data-loc=1>
+                  <a class="foot-loc col-md-3 col-sm-6 col-xs-6 col-xxs-12 location-col" href="/result?p=<%= categories[i].name %>" data-loc=1>
                       <div class="location-block" style="background-image:url(/);">
                           <h5 class="location-block-text">
                               <%= categories[i].name %>
