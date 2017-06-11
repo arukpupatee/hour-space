@@ -33,9 +33,13 @@ app.post('/result', function(req, res) {
       res_obj.locations = locations;
       var condition = {};
       condition.location= req.body.location;
-      condition.date= req.body.date;
+      var temp_date = req.body.date;
+      temp_date = temp_date.split("/");
+      console.log(temp_date);
+      condition.date= temp_date[2]+"-"+temp_date[0]+"-"+temp_date[1];
       condition.purpose= req.body.purpose;
       condition.people= req.body.people;
+      console.log(condition);
       get_space_by_condition(condition,function(spaces){
         res_obj.spaces = spaces;
         res.render('pages/result',res_obj);
@@ -58,7 +62,7 @@ app.get('/result/:purpose',function(req, res) {
     });
   });
 });
-app.get('/spaces/:id', function(req, res) {
+app.get('/space/:id', function(req, res) {
   var space_id = req.params.id;
   var res_obj = {};
   get_space_by_id(space_id,function (space){
