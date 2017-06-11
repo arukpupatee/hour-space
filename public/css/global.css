@@ -81,9 +81,21 @@
 }
 
 .register-btn,.login-btn{
-    padding:20px;
+    padding:20px 10px;
     float:right;  
     color:white;
+    position: relative;
+    z-index: 99999;
+}
+
+.create-btn{
+    display: block;
+    margin-top: 15px;
+    margin-right: 10px;
+    float:right;
+    position: relative;
+    z-index: 99999;
+    padding:3px 10px;
 }
 
 .header-search{
