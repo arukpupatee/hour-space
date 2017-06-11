@@ -32,6 +32,7 @@
                         <h5>Hourly rental made easy and simple.</h5>
                     </div>
                     <div class="header-search col-lg-8">
+                      <form id="search_space_form" action="/result" method="POST">
                         <div class="input-group">
                             <div class="header-select form-control rounded-form-control">
                                 <div class="header-search-label small">Where</div>
@@ -65,6 +66,7 @@
                                 <button class="btn btn-primary" type="button" id="searchbtn" onclick="search_space()">Search</button>
                             </span>
                         </div>
+                      </form>
                     </div>
                 </div>
             </div>
@@ -78,7 +80,7 @@
                         <h5 class="location-block-text color-black">
                             Cost-Saving
                         </h5>
-                            Save up to 90% with demand-based pricing. No commitment and no hidden fees.                    
+                            Save up to 90% with demand-based pricing. No commitment and no hidden fees.
                     </div>
                     <div class="col-md-4 col-sm-4 col-xxs-12 location-col">
                         <img src="cus-icon2.png" width=150 height=150>
@@ -110,7 +112,7 @@
                       </div>
                   </a>
                   <% } %>
-                </div>   
+                </div>
             </div>
         </div>
         <input type="hidden" name="curloc" value=0>
@@ -121,7 +123,7 @@
         <script>
             var nowTemp = new Date();
 var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
- 
+
 var checkin = $('#dpd1').datepicker({
   onRender: function(date) {
     return date.valueOf() < now.valueOf() ? 'disabled' : '';
@@ -142,6 +144,10 @@ var checkout = $('#dpd2').datepicker({
 }).on('changeDate', function(ev) {
   checkout.hide();
 }).data('datepicker');
+function search_space(){
+  var frm = document.getElementById("search_space_form");
+  frm.submit();
+}
         </script>
     </body>
 </html>

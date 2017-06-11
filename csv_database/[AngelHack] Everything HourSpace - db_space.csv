@@ -1,25 +1,25 @@
-id,name,price,location_name,location_latitude,location_longitude,people,rating,owner_id
-1,Red Planet Asoke,61.68,Asoke,,,3,3,1
-2,CityPoint Hotel,73,Asoke,,,4,4,2
-3,Paradiso Boutique Suites,55.59,Asoke,,,5,5,3
-4,Ruamchitt Plaza Hotel,54.05,Asoke,,,6,4,4
-5,The Key Sukhumvit Bangkok by Compass Hospitality,69.45,Asoke,,,7,5,5
-6,Manhattan Bangkok,65.27,Asoke,,,8,3,6
-7,Thong Ta Resort Suvarnabhumi,26.59,Suvarnabhumi Airport,,,9,4,7
-8,Gold Airport Suites,29.73,Suvarnabhumi Airport,,,10,4,8
-9,At Residence,52.14,Suvarnabhumi Airport,,,11,5,9
-10,Donmuang Airport Modern Bangkok Hotel,28.95,Dong Muang Airport,,,10,5,10
-11,Pool House Service Residence,39.77,Dong Muang Airport,,,9,3,11
-12,Montri Resort Donmuang Bangkok,44.41,Dong Muang Airport,,,8,3,12
-13,Siam Swana Hotel,54.95,Siam,,,7,3,13
-14,Bangkok City Hotel,53.55,Siam,,,6,3,14
-15,Nantra Sukhumvit 39 Hotel,36.09,Phrom Phong,,,5,5,15
-16,Check Inn Regency Park,44.5,Phrom Phong,,,4,2,16
-17,LiveItUp Bangkok,46.36,Phrom Phong,,,3,3,17
-18,Tongtara Riverview Hotel,49.14,Riverside,,,4,4,18
-19,Asanas Yoga & Fitness Center,45.45,Rama3,,,5,4,19
-20,BeatRoot Yoga & Dance,45.45,Narathiwas,,,6,5,20
-21,Divine Yoga,45.45,Thong Lor,,,7,3,21
-22,Holistic Yoga International,45.45,Thong Lor,,,8,3,22
-23,I Love Pilates,45.45,Udomsuk,,,9,4,23
-24,I'm Fly Studio,45.45,Rama3,,,10,5,24
+id,name,category_id,price,location_name,location_latitude,location_longitude,people,rating,owner_id
+1,Red Planet Asoke,1,61.68,Asoke,,,3,3,1
+2,CityPoint Hotel,2,73,Asoke,,,4,4,2
+3,Paradiso Boutique Suites,3,55.59,Asoke,,,5,5,3
+4,Ruamchitt Plaza Hotel,4,54.05,Asoke,,,6,4,4
+5,The Key Sukhumvit Bangkok by Compass Hospitality,1,69.45,Asoke,,,7,5,5
+6,Manhattan Bangkok,2,65.27,Asoke,,,8,3,6
+7,Thong Ta Resort Suvarnabhumi,3,26.59,Suvarnabhumi Airport,,,9,4,7
+8,Gold Airport Suites,4,29.73,Suvarnabhumi Airport,,,10,4,8
+9,At Residence,1,52.14,Suvarnabhumi Airport,,,11,5,9
+10,Donmuang Airport Modern Bangkok Hotel,2,28.95,Dong Muang Airport,,,10,5,10
+11,Pool House Service Residence,3,39.77,Dong Muang Airport,,,9,3,11
+12,Montri Resort Donmuang Bangkok,4,44.41,Dong Muang Airport,,,8,3,12
+13,Siam Swana Hotel,1,54.95,Siam,,,7,3,13
+14,Bangkok City Hotel,2,53.55,Siam,,,6,3,14
+15,Nantra Sukhumvit 39 Hotel,3,36.09,Phrom Phong,,,5,5,15
+16,Check Inn Regency Park,4,44.5,Phrom Phong,,,4,2,16
+17,LiveItUp Bangkok,1,46.36,Phrom Phong,,,3,3,17
+18,Tongtara Riverview Hotel,2,49.14,Riverside,,,4,4,18
+19,Asanas Yoga & Fitness Center,3,45.45,Rama3,,,5,4,19
+20,BeatRoot Yoga & Dance,4,45.45,Narathiwas,,,6,5,20
+21,Divine Yoga,1,45.45,Thong Lor,,,7,3,21
+22,Holistic Yoga International,2,45.45,Thong Lor,,,8,3,22
+23,I Love Pilates,3,45.45,Udomsuk,,,9,4,23
+24,I'm Fly Studio,4,45.45,Rama3,,,10,5,24
