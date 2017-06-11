@@ -68,7 +68,9 @@ app.get('/space', function(req, res) {
     console.log(res_obj);
     res.render('pages/space',res_obj);
   });
-
+});
+app.get('/business', function(req, res) {
+  res.render('pages/business');
 });
 
 // function
@@ -123,83 +125,6 @@ function get_space_by_id(id,callback){
         });
       });
     });
-
-    /*
-    space.amenities = [];
-    space.addons = [];
-    space.photo = [];
-    var check_callback_am = false;
-    var check_callback_ad = false;
-    var check_callback_ph = false;
-    console.log("eiei");
-    function isNameSameInArray(arr,name){
-      for(i=0;i<arr.length;i++){
-        if(arr[i].name == name) return false;
-      }
-      return true;
-    }
-    function callback_to_am(){
-    Object.keys(rows).forEach(function(am_index,rows,callback_res){
-      if(space.amenities.length == 0){
-        var am = {};
-        am.name = rows[am_index].am_name;
-        am.icon = rows[am_index].am_icon;
-        space.amenities[space.amenities.length] = am;
-      }
-      //else if(space.amenities[space.amenities.length-1].name != rows[am_index-1].am_name){
-      else if(isNameSameInArray(space.amenities,rows[am_index-1].am_name)){
-        var am = {};
-        am.name = rows[am_index].am_name;
-        am.icon = rows[am_index].am_icon;
-        space.amenities[space.amenities.length] = am;
-      }
-      if(rows.length == am_index){
-        callback(space);
-      }
-    });
-    }
-    function callback_to_ad(){
-    Object.keys(rows).forEach(function(ad_index){
-      if(space.addons.length == 0){
-        var ad = {};
-        ad.name = rows[ad_index].ad_name;
-        ad.price = rows[ad_index].ad_price;
-        ad.icon = rows[ad_index].ad_icon;
-        space.addons[space.addons.length] = ad;
-      }
-      //else if(space.addons[space.addons.length-1].name != rows[ad_index-1].ad_name){
-      else if(isNameSameInArray(space.addons,rows[ad_index-1].ad_name)){
-        var ad = {};
-        ad.name = rows[ad_index].ad_name;
-        ad.price = rows[ad_index].ad_price;
-        ad.icon = rows[ad_index].ad_icon;
-        space.addons[space.addons.length] = ad;
-      }
-      if(rows.length == ad_index){
-        callback_to_am();
-      }
-    });
-    }
-    Object.keys(rows).forEach(function(ph_index){
-      if(space.photo.length == 0){
-        var photo = {};
-        photo.name = rows[ph_index].photo_name;
-        space.photo[space.photo.length] = photo;
-      }
-      //else if(space.photo[space.photo.length-1].name != rows[ph_index-1].photo_name){
-      else if(isNameSameInArray(space.photo,rows[ph_index-1].photo_name)){
-        var photo = {};
-        photo.name = rows[ph_index].photo_name;
-        space.photo[space.photo.length] = photo;
-      }
-      console.log(photo.name);
-      console.log(space.photo[])
-      console.log(photo);
-      if(rows.length == ph_index){
-        callback_to_ad();
-      }
-    });
-    */
   });
 }
 
