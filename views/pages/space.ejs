@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>Freshdesk</title>
+        <title>HourSpace</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href = "bootstrap/css/bootstrap.css">
@@ -27,21 +27,13 @@
         </div>
         <div class="space-header space-image">
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                </ol>
-
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                    <img src="space.jpg">
-                    </div>
-                    <div class="item">
-                    <img src="space.jpg">
-                    </div>
+                    <% for (var i = 0; i < space.photo.length; i++) {%>
+                        <div class="item <% if (i==0){%> active <% } %>">
+                        <img src="<%= space.photo[i].name %>.jpg">
+                        </div>
+                    <% } %>
                 </div>
 
                 <!-- Controls -->
@@ -58,23 +50,25 @@
         <div class="container space-top">
             <div class="space-title clearfix">
                 <div class="space-title-left col-md-8 col-sm-7 col-xs-12">
-                    <h3>A Hotel</h3>
-                    <div class="space-location"><span class="icon icon-pin" aria-hidden="true"></span>Bangkok</div>
+                    <h3><%= space.name %></h3>
+                    <div class="space-location"><span class="icon icon-pin" aria-hidden="true"></span><%= space.location %></div>
                     <div class="space-icon">
                         <span class="color-yellow">
+                        <% for (var i = 0; i < space.rating; i++) {%>
                         <span class="icon icon-star" aria-hidden="true"></span>
-                        <span class="icon icon-star" aria-hidden="true"></span>
-                        <span class="icon icon-star" aria-hidden="true"></span>
+                        <% } %>
                         </span>
+                        <% for (var i = 0; i < 5 - space.rating; i++) {%>
                         <span class="icon icon-star" aria-hidden="true"></span>
                         <span class="icon icon-star" aria-hidden="true"></span>
                         <span class="icon icon-star" aria-hidden="true"></span>
+                        <% } %>
                     </div>
-                    <div class="space-capacity">Capacity: 10 people</div>
+                    <div class="space-capacity">Capacity: <%= space.people %> people</div>
                 </div>
                 <div class="space-title-right col-md-4 col-sm-5 col-xs-12">
                     <div class="space-price-tag">
-                        <div class="space-price"><span class="space-price-text">฿<span class="space-price-amount" data-value=100>100</span></span>/<span class="space-price-hour"></span>hr</div>
+                        <div class="space-price"><span class="space-price-text">฿<span class="space-price-amount" data-value=<%= space.price %>><%= space.price %></span></span>/<span class="space-price-hour"></span>hr</div>
                         <button type="button" class="space-btn btn btn-primary" data-toggle="modal" data-target="#buymodal">Book</button>
                     </div>
                     <!--div class="space-right-box space-pricetagline small">
@@ -109,25 +103,22 @@
         </div>
         <div class="container space-middle">
             <div class="space-detail col-md-8 col-sm-7 col-xs-12">
-                    <div class="detail-sec row">
+                    <!--div class="detail-sec row">
                         <div class="detail-fullline space-desc col-xs-12">
                             <div class="block-tag">Powernap</div>
                             <div class="block-tag">Powernap</div>
                             <div class="block-tag">Powernap</div>
                         </div>
-                    </div>
+                    </div-->
                     <div class="detail-sec row">
                         <div class="detail-heading col-md-4 col-xs-12">
                             Amenities
                         </div>
                         <div class="detail-line col-md-8 col-xs-12">
                             <ul class="row">
-                                <li class="col-md-6 col-xs-12"><span class="icon icon-pin" aria-hidden="true"></span> Free Wi-Fi</li>
-                                <li class="col-md-6 col-xs-12"><span class="icon icon-pin" aria-hidden="true"></span> Free Wi-Fi</li>
-                                <li class="col-md-6 col-xs-12"><span class="icon icon-pin" aria-hidden="true"></span> Free Wi-Fi</li>
-                                <li class="col-md-6 col-xs-12"><span class="icon icon-pin" aria-hidden="true"></span> Free Wi-Fi</li>
-                                <li class="col-md-6 col-xs-12"><span class="icon icon-pin" aria-hidden="true"></span> Free Wi-Fi</li>
-                                <li class="col-md-6 col-xs-12"><span class="icon icon-pin" aria-hidden="true"></span> Free Wi-Fi</li>
+                                <% for (var i = 0; i < space.amenities.length; i++) {%>
+                                <li class="col-md-6 col-xs-12"><span class="icon <%= space.amenities[i].icon %>" aria-hidden="true"></span> <%= space.amenities[i].name %></li>
+                                <% } %>
                             </ul>
                         </div>
                     </div>
@@ -137,11 +128,9 @@
                         </div>
                         <div class="detail-line col-md-8 col-xs-12">
                             <ul class="row">
-                                <li class="col-md-6 col-xs-12"><input type="checkbox" class="addon-item" value=150 name="addon-checkbox"> Free Wi-Fi  <span class="color-blue">฿150</span></li>
-                                <li class="col-md-6 col-xs-12"><input type="checkbox" class="addon-item" value=150 name="addon-checkbox"> Free Wi-Fi  <span class="color-blue">฿150</span></li>
-                                <li class="col-md-6 col-xs-12"><input type="checkbox" class="addon-item" value=150 name="addon-checkbox"> Free Wi-Fi  <span class="color-blue">฿150</span></li>
-                                <li class="col-md-6 col-xs-12"><input type="checkbox" class="addon-item" value=150 name="addon-checkbox"> Free Wi-Fi  <span class="color-blue">฿150</span></li>
-                                <li class="col-md-6 col-xs-12"><input type="checkbox" class="addon-item" value=150 name="addon-checkbox"> Free Wi-Fi  <span class="color-blue">฿150</span></li>
+                                <% for (var i = 0; i < space.addons.length; i++) {%>
+                                <li class="col-md-6 col-xs-12"><input type="checkbox" class="addon-item" value=<%= space.addons[i].price %> name="addon-checkbox"> <%= space.addons[i].name %>  <span class="color-blue">฿<%= space.addons[i].price %></span></li>
+                                <% } %>
                             </ul>
                         </div>
                     </div>
@@ -150,9 +139,9 @@
                             Contact the host
                         </div>
                         <div class="col-md-8 col-xs-12">
-                            <span class="color-black">The host</span>
-                            <br>email@email.com
-                            <br>099-999-99999
+                            <span class="color-black"><%= space.o_name %></span>
+                            <br><%= space.o_email %>
+                            <br><%= space.o_phone %>
                         </div>
                     </div>
             </div>
