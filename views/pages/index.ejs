@@ -105,7 +105,7 @@
                 <div class="landing-location-row">
                   <% for (var i = 0; i < categories.length; i++) {%>
                   <a class="foot-loc col-md-3 col-sm-6 col-xs-6 col-xxs-12 location-col" href="/result?p=<%= categories[i].name %>" data-loc=1>
-                      <div class="location-block" style="background-image:url(/);">
+                      <div class="location-block" style="background-image:url(/images/cats/<%= categories[i].id %>.jpg);">
                           <h5 class="location-block-text">
                               <%= categories[i].name %>
                           </h5>

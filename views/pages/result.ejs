@@ -29,6 +29,7 @@
                 <div class="header-content">
                     <div class="container">
                         <div class="header-search col-xs-12">
+                          <form id="search_space_form" action="/result" method="POST">
                             <div class="input-group">
                                 <div class="header-select form-control rounded-form-control">
                                     <div class="header-search-label small">Where</div>
@@ -59,9 +60,10 @@
                                     </select>
                                 </div>
                                 <span class="input-group-btn">
-                                    <button class="btn btn-primary" type="button" id="searchbtn"  data-toggle="modal" data-target="#locmodal">Search</button>
+                                    <button class="btn btn-primary" type="button" id="searchbtn"  data-toggle="modal" data-target="#locmodal" onclick="search_space()">Search</button>
                                 </span>
                             </div>
+                          </form>
                         </div>
                     </div>
                 </div>
@@ -70,7 +72,7 @@
         <div class="landing-space">
             <div class="container space-sec">
               <% for (var i = 0; i < spaces.length; i++) {%>
-                <a href="/space/<%= spaces[i].id %>" class="space-anchor no-decor" data-space=1>
+                <a href="/space?id=<%= spaces[i].id %>" class="space-anchor no-decor" data-space=1>
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="space-block">
                             <div class="block-img col-xs-12">
@@ -124,6 +126,10 @@ var checkout = $('#dpd2').datepicker({
 }).on('changeDate', function(ev) {
   checkout.hide();
 }).data('datepicker');
+function search_space(){
+  var frm = document.getElementById("search_space_form");
+  frm.submit();
+}
         </script>
     </body>
 </html>

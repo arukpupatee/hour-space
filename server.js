@@ -45,24 +45,6 @@ app.post('/result', function(req, res) {
     });
   });
 });
-/*
-app.get('/result/:purpose',function(req, res) {
-  var res_obj = {};
-  console.log(req.params.purpose);
-  get_all_categories(function(categories){
-    res_obj.categories = categories;
-    get_all_locations(function(locations){
-      res_obj.locations = locations;
-      var condition = {};
-      condition.purpose= req.params.purpose;
-      get_space_by_condition(condition,function(spaces){
-        res_obj.spaces = spaces;
-        res.render('pages/result',res_obj);
-      });
-    });
-  });
-});
-*/
 app.get('/result',function(req, res) {
   var res_obj = {};
   get_all_categories(function(categories){
@@ -79,11 +61,11 @@ app.get('/result',function(req, res) {
     });
   });
 });
-app.get('/space/:id', function(req, res) {
-  var space_id = req.params.id;
+app.get('/space', function(req, res) {
+  var space_id = req.query.id;
   var res_obj = {};
   get_space_by_id(space_id,function (space){
-
+    console.log(space);
   });
   res.render('pages/space',res_obj);
 });
@@ -102,8 +84,16 @@ function get_all_locations(callback){
   });
 }
 function get_space_by_id(id,callback){
-  var query_text = "SELECT * FROM spaces ";
+  var query_text = "SELECT spaces.name,spaces.location,spaces.rating,spaces.people,space_categories.name as category ";
+  //query_text += "space_amenities.name as am_name,space_amenities.icon_image_path as am_icon ";
+  query_text += "space_addons.name as ad_name,space_addons.icon_image_path as ad_icon,space_addons.price as ad_price ";
+  query_text += "owners.name as o_name,owners.email as o_email,owners.phone_number as o_phone ";
+  query_text += "space_photo.photo_name FROM spaces ";
+  query_text += "INNER JOIN space_categories ON spaces.category_id=space_categories.id "
   query_text += "INNER JOIN owners ON spaces.owner_id = owners.id ";
+  query_text += "INNER JOIN space_amenities ON space_categories.id = space_amenities.categories_id ";
+  query_text += "INNER JOIN space_addons ON space_categories.id = space_addons.categories_id ";
+  query_text += "INNER JOIN space_photo ON spaces.id = space_photo.space_id ";
   query_text += "WHERE spaces.id="+id;
   db.all(query_text, function(err, rows) {
     if (err) throw err;
