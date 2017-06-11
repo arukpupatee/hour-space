@@ -1,45 +1,45 @@
 categories_id,name,icon_class_name
-1,Close to BTS/MRT(Name Of The Station),
-1,Free Wi-Fi,
-1,Smoking Area,
-1,Pets Allowed,
-1,Kitchen,
-1,Used for Party/Events,
-1,Buzzer/Wireless Intercom,
-1,Elevator In Building,
-1,Wheelchair Accesible ,
-1,Iron,
-1,Cable TV,
-1,Hair Dryer,
-1,Air Conditioning,
-1,Gym ,
-1,Swimming,
-1,Free Parking,
-2,Close to BTS/MRT(Name Of The Station),
-2,Free Wi-Fi,
-2,Smoking Area,
-2,Pets Allowed,
-2,Kitchen,
-2,Used for Party/Events,
-2,Buzzer/Wireless Intercom,
-2,Elevator In Building,
-2,Wheelchair Accesible ,
-2,Iron,
-2,Cable TV,
-2,Hair Dryer,
-2,Air Conditioning,
-2,Free Parking,
-2,Gym ,
-2,Swimming,
+1,Close to BTS/MRT(Name Of The Station),check
+1,Free Wi-Fi,check
+1,Smoking Area,check
+1,Pets Allowed,check
+1,Kitchen,check
+1,Used for Party/Events,check
+1,Buzzer/Wireless Intercom,check
+1,Elevator In Building,check
+1,Wheelchair Accesible ,check
+1,Iron,check
+1,Cable TV,check
+1,Hair Dryer,check
+1,Air Conditioning,check
+1,Gym ,check
+1,Swimming,check
+1,Free Parking,check
+2,Close to BTS/MRT(Name Of The Station),check
+2,Free Wi-Fi,check
+2,Smoking Area,check
+2,Pets Allowed,check
+2,Kitchen,check
+2,Used for Party/Events,check
+2,Buzzer/Wireless Intercom,check
+2,Elevator In Building,check
+2,Wheelchair Accesible ,check
+2,Iron,check
+2,Cable TV,check
+2,Hair Dryer,check
+2,Air Conditioning,check
+2,Free Parking,check
+2,Gym ,check
+2,Swimming,check
 3,Close to BTS/MRT(Name Of The Station),train
 3,Free Wi-Fi,wifi
-3,Smoking Area,
+3,Smoking Area,check
 3,Pets Allowed,pet
 3,Kitchen,kitchen
 3,Buzzer/Wireless Intercom,telecom
 3,Elevator In Building,elevator
 3,Wheelchair Accesible ,wheelchair
-3,Iron,
+3,Iron,check
 3,Cable TV,television
 3,Hair Dryer,air
 3,Air Conditioning,temp

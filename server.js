@@ -56,7 +56,6 @@ app.get('/result',function(req, res) {
       get_space_by_condition(condition,function(spaces){
         res_obj.spaces = spaces;
         res.render('pages/result',res_obj);
-        console.log(res_obj);
       });
     });
   });
@@ -65,9 +64,11 @@ app.get('/space', function(req, res) {
   var space_id = req.query.id;
   var res_obj = {};
   get_space_by_id(space_id,function (space){
-    console.log(space);
+    res_obj.space = space;
+    console.log(res_obj);
+    res.render('pages/space',res_obj);
   });
-  res.render('pages/space',res_obj);
+
 });
 
 // function
@@ -83,11 +84,12 @@ function get_all_locations(callback){
     callback(rows);
   });
 }
+
 function get_space_by_id(id,callback){
-  var query_text = "SELECT spaces.name,spaces.location,spaces.rating,spaces.people,space_categories.name as category ";
-  //query_text += "space_amenities.name as am_name,space_amenities.icon_image_path as am_icon ";
-  query_text += "space_addons.name as ad_name,space_addons.icon_image_path as ad_icon,space_addons.price as ad_price ";
-  query_text += "owners.name as o_name,owners.email as o_email,owners.phone_number as o_phone ";
+  var query_text = "SELECT spaces.id,spaces.name,spaces.location_name,spaces.price,spaces.rating,spaces.people,space_categories.name as category,space_categories.id as cat_id, ";
+  query_text += "space_amenities.name as am_name,space_amenities.icon_image_path as am_icon, ";
+  query_text += "space_addons.name as ad_name,space_addons.icon_image_path as ad_icon,space_addons.price as ad_price, ";
+  query_text += "owners.name as o_name,owners.email as o_email,owners.phone_number as o_phone, ";
   query_text += "space_photo.photo_name FROM spaces ";
   query_text += "INNER JOIN space_categories ON spaces.category_id=space_categories.id "
   query_text += "INNER JOIN owners ON spaces.owner_id = owners.id ";
@@ -97,9 +99,110 @@ function get_space_by_id(id,callback){
   query_text += "WHERE spaces.id="+id;
   db.all(query_text, function(err, rows) {
     if (err) throw err;
-    callback(rows);
+    var space = {}
+    space.id = rows[0].id;
+    space.name = rows[0].name;
+    space.category = rows[0].category;
+    space.location = rows[0].location_name;
+    space.price = rows[0].price;
+    space.rating = rows[0].rating;
+    space.people = rows[0].people;
+    space.o_name = rows[0].o_name;
+    space.o_email = rows[0].o_email;
+    space.o_phone = rows[0].o_phone;
+    space.cat_id = rows[0].cat_id;
+    db.all("SELECT name , icon_image_path FROM space_amenities WHERE categories_id="+space.cat_id, function(err,rows2){
+      if (err) throw err;
+      console.log(rows2);
+      space.amenities = rows2;
+      db.all("SELECT name , icon_image_path , price FROM space_addons WHERE categories_id="+space.cat_id, function(err,rows3){
+        space.addons = rows3;
+        db.all("SELECT photo_name FROM space_photo WHERE space_id="+space.id, function(err,rows4){
+          space.photo = rows4;
+          callback(space);
+        });
+      });
+    });
+
+    /*
+    space.amenities = [];
+    space.addons = [];
+    space.photo = [];
+    var check_callback_am = false;
+    var check_callback_ad = false;
+    var check_callback_ph = false;
+    console.log("eiei");
+    function isNameSameInArray(arr,name){
+      for(i=0;i<arr.length;i++){
+        if(arr[i].name == name) return false;
+      }
+      return true;
+    }
+    function callback_to_am(){
+    Object.keys(rows).forEach(function(am_index,rows,callback_res){
+      if(space.amenities.length == 0){
+        var am = {};
+        am.name = rows[am_index].am_name;
+        am.icon = rows[am_index].am_icon;
+        space.amenities[space.amenities.length] = am;
+      }
+      //else if(space.amenities[space.amenities.length-1].name != rows[am_index-1].am_name){
+      else if(isNameSameInArray(space.amenities,rows[am_index-1].am_name)){
+        var am = {};
+        am.name = rows[am_index].am_name;
+        am.icon = rows[am_index].am_icon;
+        space.amenities[space.amenities.length] = am;
+      }
+      if(rows.length == am_index){
+        callback(space);
+      }
+    });
+    }
+    function callback_to_ad(){
+    Object.keys(rows).forEach(function(ad_index){
+      if(space.addons.length == 0){
+        var ad = {};
+        ad.name = rows[ad_index].ad_name;
+        ad.price = rows[ad_index].ad_price;
+        ad.icon = rows[ad_index].ad_icon;
+        space.addons[space.addons.length] = ad;
+      }
+      //else if(space.addons[space.addons.length-1].name != rows[ad_index-1].ad_name){
+      else if(isNameSameInArray(space.addons,rows[ad_index-1].ad_name)){
+        var ad = {};
+        ad.name = rows[ad_index].ad_name;
+        ad.price = rows[ad_index].ad_price;
+        ad.icon = rows[ad_index].ad_icon;
+        space.addons[space.addons.length] = ad;
+      }
+      if(rows.length == ad_index){
+        callback_to_am();
+      }
+    });
+    }
+    Object.keys(rows).forEach(function(ph_index){
+      if(space.photo.length == 0){
+        var photo = {};
+        photo.name = rows[ph_index].photo_name;
+        space.photo[space.photo.length] = photo;
+      }
+      //else if(space.photo[space.photo.length-1].name != rows[ph_index-1].photo_name){
+      else if(isNameSameInArray(space.photo,rows[ph_index-1].photo_name)){
+        var photo = {};
+        photo.name = rows[ph_index].photo_name;
+        space.photo[space.photo.length] = photo;
+      }
+      console.log(photo.name);
+      console.log(space.photo[])
+      console.log(photo);
+      if(rows.length == ph_index){
+        callback_to_ad();
+      }
+    });
+    */
   });
 }
+
 function get_space_by_condition(condition,callback){
   var query_text = "";
   if(typeof condition.location == "undefined"){
@@ -129,5 +232,5 @@ function get_space_by_condition(condition,callback){
 }
 
 
-app.listen(8080);
+app.listen(3000);
 console.log("Server listening at Port 8080");
