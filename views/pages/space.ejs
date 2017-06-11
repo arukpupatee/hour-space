@@ -33,8 +33,7 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                     <% for (var i = 0; i < space.photo.length; i++) {%>
-                        <div class="item <% if (i==0){%> active <% } %>">
-                        <img src="/images/space/<%= space.id %>/<%= space.photo[i].photo_name %>.jpg">
+                        <div class="item space-carousel <% if (i==0){%> active <% } %>" style="background-image:url('/images/space/<%= space.id %>/<%= space.photo[i].photo_name %>.jpg')">
                         </div>
                     <% } %>
                 </div>
