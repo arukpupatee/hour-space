@@ -2,6 +2,11 @@
     background-image: url("../logo.png");
 }
 
+.header-content{
+    padding-top:30px;
+    padding-bottom: 20px;
+}
+
 .register-btn{
     color: black;
 }
@@ -11,7 +16,7 @@
 .landing-header{
     color:#777777;
     background: none;
-    background-image:url("../bus-bg.jpg");
+    background-color:#F2F4FF;
     background-size: cover;
 }
 
@@ -80,4 +85,9 @@
 }
 .bussiness-action-heading{
     margin-bottom:40px;
+}
+
+.thank-text{
+    text-align: center;
+    padding-top:30px;
 }

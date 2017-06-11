@@ -72,6 +72,9 @@ app.get('/space', function(req, res) {
 app.get('/business', function(req, res) {
   res.render('pages/business');
 });
+app.get('/thank', function(req, res) {
+  res.render('pages/thank');
+});
 
 // function
 function get_all_categories(callback){
