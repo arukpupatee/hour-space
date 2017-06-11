@@ -48,6 +48,7 @@ body{
 }
 .block-text{
     padding: 20px;
+    height:161px;
 }
 .block-desc{
     height:44px;
@@ -56,6 +57,8 @@ body{
 }
 .space-block h4{
     margin: 0;
+    max-height: 53px;
+    overflow: hidden;
 }
 .block-location{
     margin-bottom: 10px;
@@ -63,6 +66,12 @@ body{
 }
 .block-middle{
     margin-top:10px;
+}
+.block-buttom{
+    position: absolute;
+    left:20px;
+    right:20px;
+    bottom:20px;
 }
 .block-butt-left{
     float:left;
