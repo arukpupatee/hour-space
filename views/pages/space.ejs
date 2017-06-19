@@ -9,6 +9,7 @@
         <link rel="stylesheet" href = "css/reboot.css">
         <link rel="stylesheet" href = "css/global.css">
         <link rel="stylesheet" href = "css/space.css">
+        <link rel="stylesheet" href = "css/datepicker.css">
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Prompt:100,200,300,400,500,600,700,800,900&amp;subset=thai" rel="stylesheet">
         <link href="https://file.myfontastic.com/G8KRYFNq9QatpXE9t32usG/icons.css" rel="stylesheet">
     </head>
@@ -61,8 +62,6 @@
                         <% } %>
                         </span>
                         <% for (var i = 0; i < 5 - space.rating; i++) {%>
-                        <span class="icon icon-star" aria-hidden="true"></span>
-                        <span class="icon icon-star" aria-hidden="true"></span>
                         <span class="icon icon-star" aria-hidden="true"></span>
                         <% } %>
                     </div>
@@ -156,7 +155,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="icon icon-cancel" aria-hidden="true"></span></button>
                     </div>
                     <div class="modal-body modal-booking" id="modalbooking">
-                        <div class="input-row"><label>Date</label><input type="date" class="form-control" placeholder="mm/dd/yyyy"></div>
+                        <div class="input-row"><label>Date</label><input  type='text' class="form-control" name="date" id="dpd1" placeholder="Date"></div>
                         <div class="input-row">
                             <label>How many people?</label>
                             <select class="form-control space-hour-input">
@@ -222,7 +221,34 @@
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="js/moment.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="js/bootstrap-datetimepicker.min.js"></script>
         <script src="js/space.js"></script>
+        <script>
+            var nowTemp = new Date();
+var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+
+var checkin = $('#dpd1').datepicker({
+  onRender: function(date) {
+    return date.valueOf() < now.valueOf() ? 'disabled' : '';
+  }
+}).on('changeDate', function(ev) {
+  if (ev.date.valueOf() > checkout.date.valueOf()) {
+    var newDate = new Date(ev.date)
+    newDate.setDate(newDate.getDate() + 1);
+    checkout.setValue(newDate);
+  }
+  checkin.hide();
+  $('#dpd2')[0].focus();
+}).data('datepicker');
+var checkout = $('#dpd2').datepicker({
+  onRender: function(date) {
+    return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+  }
+}).on('changeDate', function(ev) {
+  checkout.hide();
+}).data('datepicker');
+        </script>
     </body>
 </html>
